@@ -34,6 +34,11 @@ class RecipeListViewController: UIViewController, UITableViewDataSource, UITable
         cell.textLabel?.text = recipes[indexPath.row].name
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           let selectedRecipe = recipes[indexPath.row]
+           let detailVC = RecipeDetailViewController(recipe: selectedRecipe)
+           navigationController?.pushViewController(detailVC, animated: true)
+       }
    
 }
